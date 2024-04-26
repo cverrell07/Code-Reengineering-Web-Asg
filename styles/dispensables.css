@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #272727;
+    color: #fff;
+}
+
+
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #000000;
+    border-radius: 20px;
+    z-index: 1000;
+    padding: 25px 25px; 
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; 
+}
+.logo {
+    width: 100px;
+}
+.menu {
+    list-style: none;
+    display: flex;
+}
+.menu li {
+    margin-right: 20px;
+}
+.menu li:last-child {
+    margin-right: 0;
+}
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #242424;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.menu .btn-now{
+    background-color: #ffffff;
+    color: #242424;
+    box-shadow: 0 0px 20px rgba(255, 255, 255, 0.5);
+}
+.menu a:hover {
+    background-color: #000000;
+    box-shadow: 0 5px 15px rgba(64, 64, 64, 0.5);
+}
+.menu .btn-now:hover{
+    background-color: #ffffff;
+    color: #242424;
+    box-shadow: 0 0px 20px rgba(255, 255, 255, 0.5);
+}
+
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    background-color: #111;
+    height: 100vh;
+    padding-top: 12%;
+    flex-direction: column;
+}
+.title {
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 5rem;
+    margin-bottom: 1%;
+}
+.main-container p{
+    text-align: center;
+    width: 70%;
+    margin-bottom: 2%;
+    font-size: 1.3rem;
+    color: #959595;
+}
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+}
+.button {
+    width: 250px;
+    height: auto; 
+    background-color: #333;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.button p{
+    text-align: start;
+    width: 100%;
+}
+.button .button-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.button p {
+    font-size: 1.2rem;
+    text-align: center;
+    opacity: 0.8;
+    margin: 0;
+    text-decoration: none;
+}
+.button a{
+    text-decoration: none;
+    color: #fff;
+}
+.button:hover,
+.button:hover a {
+    background-color: #ffffff;
+    color: #242424;
+    transform: scale(0.97);
+    box-shadow: 0 5px 30px rgba(255, 255, 255, 0.2);
+    transition: background-color 0.1s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.button .button-content i {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+
+#comments,
+#duplicate-code,
+#lazy-class,
+#data-class,
+#dead-code,
+#speculative-generality {
+    padding: 20px;
+    margin: 50px auto;
+    max-width: 90%;
+    background-color: #333;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#comments h1,
+#duplicate-code h1,
+#lazy-class h1,
+#data-class h1,
+#dead-code h1,
+#speculative-generality h1 {
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+#comments p,
+#duplicate-code p,
+#lazy-class p,
+#data-class p,
+#dead-code p,
+#speculative-generality p {
+    font-size: 1rem;
+    margin-bottom: 2%;
+    text-align: justify;
+}
+.explanation-solution {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.explanation,
+.solution {
+    width: 45%;
+}
+.illustration img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 20px 0;
+}
+.container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: #242424;;
+}
