@@ -14,8 +14,9 @@
         <div class="nav-container">
             <img src="logo.png" alt="VerVyn" class="logo">
             <ul class="menu">
+                <li><a href="../views/index.html" class="btn-now">Home</a></li>
                 <li><a href="#change-preventers" class="btn btn-skeumorphic">The Change Preventers</a></li>
-                <li><a href="#dispensables" class="btn btn-skeumorphic">The Dispensables</a></li>
+                <li><a href="../views/dispensables.html" class="btn btn-skeumorphic">The Dispensables</a></li>
             </ul>
         </div>
     </nav>
@@ -56,7 +57,10 @@
 
     <script>
         function scrollToBottom() {
-            window.scrollTo(0, document.body.scrollHeight);
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
         }
     </script>
 </body>

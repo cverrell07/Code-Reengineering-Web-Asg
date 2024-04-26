@@ -51,9 +51,19 @@ body {
     background-color: #242424;
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
+.menu .btn-now{
+    background-color: #ffffff;
+    color: #242424;
+    box-shadow: 0 0px 20px rgba(255, 255, 255, 0.5);
+}
 .menu a:hover {
     background-color: #000000;
     box-shadow: 0 5px 15px rgba(64, 64, 64, 0.5);
+}
+.menu .btn-now:hover{
+    background-color: #ffffff;
+    color: #242424;
+    box-shadow: 0 0px 20px rgba(255, 255, 255, 0.5);
 }
 
 
@@ -125,6 +135,15 @@ h1{
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.cta-button:hover {
+    color: #fff;
+    background-color: #242424;
+    transform: scale(0.97);
+    box-shadow: 0 5px 30px rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
 }
 
 
