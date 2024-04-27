@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-... (hash value) ..." crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -16,7 +19,7 @@
             <img src="logo.png" alt="VerVyn" class="logo">
             <ul class="menu">
                 <li><a href="../views/index.html" class="btn btn-skeumorphic">Home</a></li>
-                <li><a href="#change-preventers" class="btn btn-skeumorphic">The Change Preventers</a></li>
+                <li><a href="../views/change-preventers.html" class="btn btn-skeumorphic">The Change Preventers</a></li>
                 <li><a href="../views/dispensables.html" class="btn-now">The Dispensables</a></li>
             </ul>
         </div>
@@ -92,21 +95,19 @@
             </div>
             <div class="solution">
                 <h2>Penyelesaian</h2>
-                <div class="illustration">
-                    <img src="illustration-solution-comments.jpg" alt="Illustration for solution">
-                </div>
                 <p>Lakukan <span class="treatment">Extract Method</span> pada bagian-bagian dalam fungsi agar dapat membedakan tujuan function yang satu dengan yang lainnya dengan jelas. Kemudian <span class="treatment">Rename Method</span> pada function <code class="codeHighlight">printMenu()</code> menjadi <code class="codeHighlight">printMenuAndGetInput()</code>.</p>
                 <div class="example">
                     <img src="../assets/masalah_comment_after.png">
                 </div>
-                <p>Treatment lain yang bisa dilakukan pada Comments:</p>
-                <ul>
-                    <li class="treatment">Extract Variable</li>
-                    <p>Jika sebuah comment ditujukan untuk menjelaskan sebuah ekspresi yang kompleks, ekspresi tersebut seharusnya dibagi menjadi beberapa subekspresi dan hasil dari subekspresi tersebut disimpan dalam variable <span class="italic">self-explanatory</span> yang berbeda-beda.</p>
-                    <li class="treatment">Introduce Assertion</li>
-                    <p>Dapat digunakan jika sebuah bagian dalam code memerlukan rules assert agar code dapat berjalan.</p>
-                </ul>
-                
+                <h3>Treatment lain yang bisa dilakukan pada Comments:</h3>
+                <div class="treatment-lain">
+                    <ul>
+                        <li class="treatment">Extract Variable</li>
+                        <p>Jika sebuah comment ditujukan untuk menjelaskan sebuah ekspresi yang kompleks, ekspresi tersebut seharusnya dibagi menjadi beberapa subekspresi dan hasil dari subekspresi tersebut disimpan dalam variable <span class="italic">self-explanatory</span> yang berbeda-beda.</p>
+                        <li class="treatment">Introduce Assertion</li>
+                        <p>Dapat digunakan jika sebuah bagian dalam code memerlukan rules assert agar code dapat berjalan.</p>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -137,26 +138,25 @@
             </div>
             <div class="solution">
                 <h2>Penyelesaian</h2>
-                <div class="illustration">
-                    <img src="illustration-solution-comments.jpg" alt="Illustration for solution">
-                </div>
                 <p>Lakukan <span class="treatment">Extract Method</span> pada beberapa bagian dalam code. Seperti <code class="codeHighlight">for</code> yang sama dapat diextract ke method baru dan tambahkan parameter variable dalam method tersebut agar kita bisa mengimplementasikan method untuk print Bar, Baz, dan Quz.</p>
                 <div class="example">
                     <img src="../assets/masalah_duplicate_after.png" >
                 </div>
-                <p>Treatment lain yang bisa dilakukan pada Duplicate Code:</p>
-                <ul>
-                    <li class="treatment">Pull Up Constructor Body.</li>
-                    <p>Dapat digunakan jika duplicate code ada di sebuah constructor.</p>
-                    <li class="treatment">Form Template Method</li>
-                    <p>Dapat digunakan jika sebuah ada duplicate code yang mirip namun tidak 100% identik.</p>
-                    <li class="treatment">Substitute Algorithm</li>
-                    <p>Jika ada dua method yang melakukan hal yang sama tetapi menggunakan algoritma yang berbeda, pilihlah algoritma terbaik dan terapkan Substitute Algorithm.</p>
-                    <li class="treatment">Consolidate Conditional Expression</li>
-                    <p>Jika terdapat sejumlah besar conditional expression yang hadir dan melakukan kode yang sama (hanya berbeda dalam kondisinya), gabungkan operator-operasi ini menjadi satu kondisi menggunakan Consolidate Conditional Expression.</p>
-                    <li class="treatment">Consolidate Duplicate Conditional Fragment</li>
-                    <p>Jika kode yang sama dilakukan di semua cabang dari sebuah conditional expression, tempatkan kode yang identik di luar condition tree dengan menggunakan Consolidate Duplicate Conditional Fragment.</p>
-                </ul>
+                <h3>Treatment lain yang bisa dilakukan pada Duplicate Code:</h3>
+                <div class="treatment-lain">
+                    <ul>
+                        <li class="treatment">Pull Up Constructor Body.</li>
+                        <p>Dapat digunakan jika duplicate code ada di sebuah constructor.</p>
+                        <li class="treatment">Form Template Method</li>
+                        <p>Dapat digunakan jika sebuah ada duplicate code yang mirip namun tidak 100% identik.</p>
+                        <li class="treatment">Substitute Algorithm</li>
+                        <p>Jika ada dua method yang melakukan hal yang sama tetapi menggunakan algoritma yang berbeda, pilihlah algoritma terbaik dan terapkan Substitute Algorithm.</p>
+                        <li class="treatment">Consolidate Conditional Expression</li>
+                        <p>Jika terdapat sejumlah besar conditional expression yang hadir dan melakukan kode yang sama (hanya berbeda dalam kondisinya), gabungkan operator-operasi ini menjadi satu kondisi menggunakan Consolidate Conditional Expression.</p>
+                        <li class="treatment">Consolidate Duplicate Conditional Fragment</li>
+                        <p>Jika kode yang sama dilakukan di semua cabang dari sebuah conditional expression, tempatkan kode yang identik di luar condition tree dengan menggunakan Consolidate Duplicate Conditional Fragment.</p>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -182,18 +182,17 @@
             </div>
             <div class="solution">
                 <h2>Penyelesaian</h2>
-                <div class="illustration">
-                    <img src="illustration-solution-comments.jpg" alt="Illustration for solution">
-                </div>
                 <p>Function <code class="codeHighlight">validate</code> dapat digabung ke class <code class="codeHighlight">Price</code> dan diberi nama yang sesuai yaitu <code class="codeHighlight">isPriceValid</code>. Setelah dipindahkan, class <code class="codeHighlight">PriceValidator</code> dapat dihapus.</p>
                 <div class="example">
                     <img src="../assets/masalah_lazyclass_after.png" >
                 </div>
-                <p>Treatment lain yang bisa dilakukan pada Lazy Class:</p>
-                <ul>
-                    <li class="treatment">Collapse Hierarchy</li>
-                    <p>Misalnya ada subclass yang isinya sama seperti superclassnya, maka dapat digabungkan saja agar tidak terjadi lazy class.</p>
-                </ul>
+                <h3>Treatment lain yang bisa dilakukan pada Lazy Class:</h3>
+                <div class="treatment-lain">
+                    <ul>
+                        <li class="treatment">Collapse Hierarchy</li>
+                        <p>Misalnya ada subclass yang isinya sama seperti superclassnya, maka dapat digabungkan saja agar tidak terjadi lazy class.</p>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -219,20 +218,19 @@
             </div>
             <div class="solution">
                 <h2>Penyelesaian</h2>
-                <div class="illustration">
-                    <img src="illustration-solution-comments.jpg" alt="Illustration for solution">
-                </div>
                 <p>Refactor code smell tersebut dengan memindahkan field <code class="codeHighlight">firstName</code> dan <code class="codeHighlight">lastName</code> ke class <code class="codeHighlight">User</code>. Kemudian hapus class <code class="codeHighlight">FullName</code> sehingga seluruh data mengenai user hanya disimpan di class <code class="codeHighlight">User</code>.</p>
                 <div class="example">
                     <img src="../assets/masalah_dataclass_after.png" >
                 </div>
-                <p>Treatment lain yang bisa dilakukan pada Data Class:</p>
-                <ul>
-                    <li class="treatment">Encapsulate Field</li>
-                    <p>Jika ada bidang-bidang dalam sebuah kelas yang dapat diakses secara langsung dari luar kelas (public), lebih baik kita sembunyikan bidang-bidang tersebut dan memberikan akses ke mereka melalui metode getter dan setter.</p>
-                    <li class="treatment">Encapsulate Collection</li>
-                    <p>Dapat digunakan untuk data yang disimpan dalam koleksi (seperti array).</p>
-                </ul>
+                <h3>Treatment lain yang bisa dilakukan pada Data Class:</h3>
+                <div class="treatment-lain">
+                    <ul>
+                        <li class="treatment">Encapsulate Field</li>
+                        <p>Jika ada bidang-bidang dalam sebuah kelas yang dapat diakses secara langsung dari luar kelas (public), lebih baik kita sembunyikan bidang-bidang tersebut dan memberikan akses ke mereka melalui metode getter dan setter.</p>
+                        <li class="treatment">Encapsulate Collection</li>
+                        <p>Dapat digunakan untuk data yang disimpan dalam koleksi (seperti array).</p>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -258,22 +256,21 @@
             </div>
             <div class="solution">
                 <h2>Penyelesaian</h2>
-                <div class="illustration">
-                    <img src="illustration-solution-comments.jpg" alt="Illustration for solution">
-                </div>
                 <p>Bagian requirement yang pertama dapat dihapus saja.</p>
                 <div class="example">
                     <img src="../assets/masalah_deadcode_after.png" >
                 </div>
-                <p>Treatment lain yang bisa dilakukan pada Dead Code:</p>
-                <ul>
-                    <li class="treatment">Inline Class</li>
-                    <p>Dapat digunakan untuk menghapus class yang tidak berguna.</p>
-                    <li class="treatment">Collapse Hierarchy</li>
-                    <p>Dapat digunakan untuk menggabungkan subclass dengan superclass.</p>
-                    <li class="treatment">Remove Parameter</li>
-                    <p>Dapat digunakan untuk menghapus parameter yang tidak dibutuhkan dalam sebuah method.</p>
-                </ul>
+                <h3>Treatment lain yang bisa dilakukan pada Dead Code:</h3>
+                <div class="treatment-lain">
+                    <ul>
+                        <li class="treatment">Inline Class</li>
+                        <p>Dapat digunakan untuk menghapus class yang tidak berguna.</p>
+                        <li class="treatment">Collapse Hierarchy</li>
+                        <p>Dapat digunakan untuk menggabungkan subclass dengan superclass.</p>
+                        <li class="treatment">Remove Parameter</li>
+                        <p>Dapat digunakan untuk menghapus parameter yang tidak dibutuhkan dalam sebuah method.</p>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -306,9 +303,6 @@
             </div>
             <div class="solution">
                 <h2>Penyelesaian</h2>
-                <div class="illustration">
-                    <img src="illustration-solution-comments.jpg" alt="Illustration for solution">
-                </div>
                 <p>Selain class <code class="codeHighlight">Digital</code>, class <code class="codeHighlight">Traditional</code> juga dapat dihapus. Lakukan <span class="treatment">Collapse Hierarchy</span> dengan membuat class <code class="codeHighlight">IDR</code> dan class <code class="codeHighlight">USD</code> menjadi turunan langsung dari class <code class="codeHighlight">Currency</code>.</p>
                 <div class="example3">
                     <img src="../assets/masalah_speculative_after1.png" >
@@ -316,18 +310,25 @@
                 <div class="example33">
                     <img src="../assets/masalah_speculative_after2.png" >
                 </div>
-                <p>Treatment lain yang bisa dilakukan pada Speculative Generality:</p>
-                <ul>
-                    <li class="treatment">Inline Class</li>
-                    <p>Dapat digunakan untuk menghapus kelas yang tidak lagi diperlukan dan menggabungkan fungsionalitasnya langsung ke dalam kelas yang memanggilnya.</p>
-                    <li class="treatment">Inline Method</li>
-                    <p>Dapat digunakan untuk menghapus method yang tidak digunakan.</p>
-                    <li class="treatment">Remove Parameter</li>
-                    <p>Dapat digunakan untuk menghapus parameter yang tidak dibutuhkan dalam sebuah method.</p>
-                </ul>
+                <h3>Treatment lain yang bisa dilakukan pada Speculative Generality:</h3>
+                <div class="treatment-lain">
+                    <ul>
+                        <li class="treatment">Inline Class</li>
+                        <p>Dapat digunakan untuk menghapus kelas yang tidak lagi diperlukan dan menggabungkan fungsionalitasnya langsung ke dalam kelas yang memanggilnya.</p>
+                        <li class="treatment">Inline Method</li>
+                        <p>Dapat digunakan untuk menghapus method yang tidak digunakan.</p>
+                        <li class="treatment">Remove Parameter</li>
+                        <p>Dapat digunakan untuk menghapus parameter yang tidak dibutuhkan dalam sebuah method.</p>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 VerVyn. All rights reserved.</p>
+    </footer>
+
 </body>
 
 <script src="../scripts/scroll-behavior.js"></script>
