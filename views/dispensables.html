@@ -24,7 +24,7 @@
 
     <div class="main-container">
         <h1 class="title">The Dispensables</h1>
-        <p> "Dispensable" merujuk pada segala sesuatu yang tidak perlu dan tidak dibutuhkan, dan ketiadaannya akan membuat kode menjadi lebih bersih, lebih efisien, dan lebih mudah dipahami.</p>
+        <p> "Dispensable" adalah smell yang terjadi jika ada bagian-bagian code yang kurang berguna dan tidak dibutuhkan. Ketiadaannya akan membuat code lebih bersih, efisien, dan lebih mudah untuk dipahami.</p>
         <div class="buttons-container">
             <div class="button">
                 <div class="button-content">
@@ -76,18 +76,37 @@
                 <blockquote>
                     <p>"Niatan baik malah dianggap sampah. Emang kalian jahat banget ya? Aku cuman ingin membuat petunjuk disini.."</p>
                 </blockquote>
-                <p> Tahukah kamu? Kalau dalam pembuatan nama variable, method, class, maupun interface, sudah harus bisa menjelaskan apa isi dari masing-masing tindakannya. Comment masih dapat digunakan untuk dokumentasi API seperti di bawah ini</p>
+                <p> Smell ini terjadi ketika ada terlalu banyak komen dalam sebuah code.</p>
+                <p> Tahukah kamu? Kalau dalam pembuatan nama variable, method, class, maupun interface, sudah harus bisa menjelaskan apa isi dari masing-masing tindakannya. Begitu juga logic flow di dalam function harus dapat dimengerti oleh programmer lainnya tanpa memerlukan comment yang panjang.</p>
+                <p> Comment masih dapat digunakan untuk dokumentasi API seperti di bawah ini</p>
                 <div class="illustration">
                     <img src="../assets/masalah-comments.png">
                 </div>
-                <p>Ini adalah paragraf penjelasan lainnya.</p>
+                <p>Namun terdapat beberapa kondisi dimana comment dianggap sebagai smell. Sebagai contoh, lihatlah class <code class="codeHighlight">MenuPrinter</code> yang dicantumkan di bawah ini:</p>
+                <div class="example">
+                    <img src="../assets/masalah_comment_before.png" alt="">
+                </div>
+                
+                <p>Terdapat banyak komentar pada class <code class="codeHighlight">MenuPrinter</code> dan function <code class="codeHighlight">printMenu()</code>.</p>
+                <p>Di atas function <code class="codeHighlight">printMenu()</code> tertulis komen bahwa function ini dapat melakukan print, scan, dan return hasil scan. Sedangkan nama functionnya hanya <code class="codeHighlight">printMenu()</code>. Hal ini dapat menyesatkan programmer lain karena penamaan function tidak sesuai dengan fungsinya.</p>
             </div>
             <div class="solution">
                 <h2>Penyelesaian</h2>
                 <div class="illustration">
                     <img src="illustration-solution-comments.jpg" alt="Illustration for solution">
                 </div>
-                <p>Ini adalah paragraf penyelesaian.</p>
+                <p>Lakukan <span class="treatment">Extract Method</span> pada bagian-bagian dalam fungsi agar dapat membedakan tujuan function yang satu dengan yang lainnya dengan jelas. Kemudian <span class="treatment">Rename Method</span> pada function <code class="codeHighlight">printMenu()</code> menjadi <code class="codeHighlight">printMenuAndGetInput()</code>.</p>
+                <div class="example">
+                    <img src="../assets/masalah_comment_after.png">
+                </div>
+                <p>Treatment lain yang bisa dilakukan pada Comments:</p>
+                <ul>
+                    <li class="treatment">Extract Variable</li>
+                    <p>Jika sebuah comment ditujukan untuk menjelaskan sebuah ekspresi yang kompleks, ekspresi tersebut seharusnya dibagi menjadi beberapa subekspresi dan hasil dari subekspresi tersebut disimpan dalam variable <span class="italic">self-explanatory</span> yang berbeda-beda.</p>
+                    <li class="treatment">Introduce Assertion</li>
+                    <p>Dapat digunakan jika sebuah bagian dalam code memerlukan rules assert agar code dapat berjalan.</p>
+                </ul>
+                
             </div>
         </div>
     </div>
@@ -101,20 +120,43 @@
                     <img src="illustration-explanation-comments.jpg" alt="Illustration for explanation">
                 </div>
                 <blockquote>
-                    <p>"Ini adalah kutipan dengan tanda petik yang berbeda ukuran dan fontnya."</p>
+                    <p>"Apa salahnya sih CTRL+C CTRL+V berkali kali? Toh tinggal edit dikit aja codenya masih bisa jalan..."</p>
                 </blockquote>
-                <p>Ini adalah paragraf penjelasan.</p>
-                <div class="illustration">
-                    <img src="../assets/masalah-comments.png">
+                <p>Smell ini terjadi jika terdapat bagian code yang sama atau mirip.</p>
+                <p>Biasanya smell ini terjadi jika beberapa programmer kerja dalam part yang berbeda dalam program yang sama. Dikarenakan tugas mereka berbeda,  mereka bisa tidak sadar bahwa ternyata code yang mereka buat sudah dibuat sama anggota tim mereka.</p>
+                <p>Tahukah kamu? Kita bisa menggunakan <span class="treatment">Rule of Three</span> sebagai patokan yaitu jika ada bagian code yang sudah di copy-paste tiga kali, maka sudah menjadi lampu merah untuk segera dilakukan refactor.</p>
+               <p>Lihatlah class <code class="codeHighlight">Foo</code> di bawah ini:</p>
+                <div class="example2">
+                    <img src="../assets/masalah_duplicate_before1.png" >
+                    <img src="../assets/masalah_duplicate_before2.png" >
                 </div>
-                <p>Ini adalah paragraf penjelasan lainnya.</p>
+                <div class="example22">
+                    <img src="../assets/masalah_duplicate_before3.png" >
+                </div>
+                <p>Pada function <code class="codeHighlight">bar()</code> , <code class="codeHighlight">bax()</code> , dan <code class="codeHighlight">qux()</code>, terdapat banyak bagian method yang sama. Oleh karena itu perlu direfactor agar tidak terjadi duplikasi code. </p>
             </div>
             <div class="solution">
                 <h2>Penyelesaian</h2>
                 <div class="illustration">
                     <img src="illustration-solution-comments.jpg" alt="Illustration for solution">
                 </div>
-                <p>Ini adalah paragraf penyelesaian.</p>
+                <p>Lakukan <span class="treatment">Extract Method</span> pada beberapa bagian dalam code. Seperti <code class="codeHighlight">for</code> yang sama dapat diextract ke method baru dan tambahkan parameter variable dalam method tersebut agar kita bisa mengimplementasikan method untuk print Bar, Baz, dan Quz.</p>
+                <div class="example">
+                    <img src="../assets/masalah_duplicate_after.png" >
+                </div>
+                <p>Treatment lain yang bisa dilakukan pada Duplicate Code:</p>
+                <ul>
+                    <li class="treatment">Pull Up Constructor Body.</li>
+                    <p>Dapat digunakan jika duplicate code ada di sebuah constructor.</p>
+                    <li class="treatment">Form Template Method</li>
+                    <p>Dapat digunakan jika sebuah ada duplicate code yang mirip namun tidak 100% identik.</p>
+                    <li class="treatment">Substitute Algorithm</li>
+                    <p>Jika ada dua method yang melakukan hal yang sama tetapi menggunakan algoritma yang berbeda, pilihlah algoritma terbaik dan terapkan Substitute Algorithm.</p>
+                    <li class="treatment">Consolidate Conditional Expression</li>
+                    <p>Jika terdapat sejumlah besar conditional expression yang hadir dan melakukan kode yang sama (hanya berbeda dalam kondisinya), gabungkan operator-operasi ini menjadi satu kondisi menggunakan Consolidate Conditional Expression.</p>
+                    <li class="treatment">Consolidate Duplicate Conditional Fragment</li>
+                    <p>Jika kode yang sama dilakukan di semua cabang dari sebuah conditional expression, tempatkan kode yang identik di luar condition tree dengan menggunakan Consolidate Duplicate Conditional Fragment.</p>
+                </ul>
             </div>
         </div>
     </div>
@@ -128,20 +170,30 @@
                     <img src="illustration-explanation-comments.jpg" alt="Illustration for explanation">
                 </div>
                 <blockquote>
-                    <p>"Ini adalah kutipan dengan tanda petik yang berbeda ukuran dan fontnya."</p>
+                    <p>"Lagi ngoding kok ditinggal? Gapapa donk bikin class yang isinya buat print doank?"</p>
                 </blockquote>
-                <p>Ini adalah paragraf penjelasan.</p>
-                <div class="illustration">
-                    <img src="../assets/masalah-comments.png">
+                <p>Smell ini terjadi apabila dalam satu class isinya dikit atau hanya berisi satu function yang minim.</p>
+                <p>Smell ini bisa terjadi karena refactoring. Jadi awalnya class ini didesain sebagai class yang fully functional, namun karena terdapat beberapa smell maka direfactoring dan menjadi class yang isinya minim.</p>
+                <p>Sebuah project mempunyai class <code class="codeHighlight">Price</code> dan <code class="codeHighlight">PriceValidator</code>. Di bawah ini adalah isi class <code class="codeHighlight">PriceValidator</code>:</p>
+                <div class="example">
+                    <img src="../assets/masalah_lazyclass_before.png">
                 </div>
-                <p>Ini adalah paragraf penjelasan lainnya.</p>
+                <p>Class tersebut hanya mempunyai satu function untuk validasi harga. Maka dari itu, class ini termasuk lazy class.</p>
             </div>
             <div class="solution">
                 <h2>Penyelesaian</h2>
                 <div class="illustration">
                     <img src="illustration-solution-comments.jpg" alt="Illustration for solution">
                 </div>
-                <p>Ini adalah paragraf penyelesaian.</p>
+                <p>Function <code class="codeHighlight">validate</code> dapat digabung ke class <code class="codeHighlight">Price</code> dan diberi nama yang sesuai yaitu <code class="codeHighlight">isPriceValid</code>. Setelah dipindahkan, class <code class="codeHighlight">PriceValidator</code> dapat dihapus.</p>
+                <div class="example">
+                    <img src="../assets/masalah_lazyclass_after.png" >
+                </div>
+                <p>Treatment lain yang bisa dilakukan pada Lazy Class:</p>
+                <ul>
+                    <li class="treatment">Collapse Hierarchy</li>
+                    <p>Misalnya ada subclass yang isinya sama seperti superclassnya, maka dapat digabungkan saja agar tidak terjadi lazy class.</p>
+                </ul>
             </div>
         </div>
     </div>
@@ -155,20 +207,32 @@
                     <img src="illustration-explanation-comments.jpg" alt="Illustration for explanation">
                 </div>
                 <blockquote>
-                    <p>"Ini adalah kutipan dengan tanda petik yang berbeda ukuran dan fontnya."</p>
+                    <p>"Class kok isinya data doank? Mending belajar data struct aja kalau mau muat data doank!!"</p>
                 </blockquote>
-                <p>Ini adalah paragraf penjelasan.</p>
-                <div class="illustration">
-                    <img src="../assets/masalah-comments.png">
+                <p>Smell ini terjadi jika ada kelas yang isinya cuman field dan setter getter saja. Dia disebut sebagai <span class="italic">dumb data holders</span> sehingga bisa dipertimbangkan untuk dibuang dengan cara digabung dengan class lain saja.</p>
+                <p>Ketika sebuah produk baru di awal-awal code, wajar saja jika banyak class yang belum memiliki behavior (baru berisi data saja). Namun, apabila produknya sudah semakin berkembang dan masih ada class yang hanya berisi setter dan getter, maka lebih baik direfactor saja.</p>
+                <p>Lihatlah class <code class="codeHighlight">FullName</code> di bawah ini:</p>
+                <div class="example">
+                    <img src="../assets/masalah_dataclass_before.png">
                 </div>
-                <p>Ini adalah paragraf penjelasan lainnya.</p>
+                <p>Pada class tersebut hanya terdapat data dan setter getter untuk <code class="codeHighlight">firstName</code> dan <code class="codeHighlight">lastName</code> saja.</p>
             </div>
             <div class="solution">
                 <h2>Penyelesaian</h2>
                 <div class="illustration">
                     <img src="illustration-solution-comments.jpg" alt="Illustration for solution">
                 </div>
-                <p>Ini adalah paragraf penyelesaian.</p>
+                <p>Refactor code smell tersebut dengan memindahkan field <code class="codeHighlight">firstName</code> dan <code class="codeHighlight">lastName</code> ke class <code class="codeHighlight">User</code>. Kemudian hapus class <code class="codeHighlight">FullName</code> sehingga seluruh data mengenai user hanya disimpan di class <code class="codeHighlight">User</code>.</p>
+                <div class="example">
+                    <img src="../assets/masalah_dataclass_after.png" >
+                </div>
+                <p>Treatment lain yang bisa dilakukan pada Data Class:</p>
+                <ul>
+                    <li class="treatment">Encapsulate Field</li>
+                    <p>Jika ada bidang-bidang dalam sebuah kelas yang dapat diakses secara langsung dari luar kelas (public), lebih baik kita sembunyikan bidang-bidang tersebut dan memberikan akses ke mereka melalui metode getter dan setter.</p>
+                    <li class="treatment">Encapsulate Collection</li>
+                    <p>Dapat digunakan untuk data yang disimpan dalam koleksi (seperti array).</p>
+                </ul>
             </div>
         </div>
     </div>
@@ -182,20 +246,34 @@
                     <img src="illustration-explanation-comments.jpg" alt="Illustration for explanation">
                 </div>
                 <blockquote>
-                    <p>"Ini adalah kutipan dengan tanda petik yang berbeda ukuran dan fontnya."</p>
+                    <p>"Kasian banget, code udh dibuat tapi malah didiemin aja. Lama-lama mati rasa deh"</p>
                 </blockquote>
-                <p>Ini adalah paragraf penjelasan.</p>
-                <div class="illustration">
-                    <img src="../assets/masalah-comments.png">
+                <p>Smell yang terjadi jika ada variable/parameter/field/class/metode yang tidak lagi terpakai.</p>
+                <p>Misalnya ada perubahan requirements dalam sebuah method. Setelah membuat code dengan requirements yang baru, code yang lama tetap dibiarkan (tidak dihapus).</p>
+                <p>Sebagai contoh, pada class <code class="codeHighlight">PriceCalculator</code> terdapat function <code class="codeHighlight">calculate</code> untuk menghitung diskon. Requirement awalnya adalah akan diberikan diskon 10% jika harga kurang dari 10.000 dan jika lebih maka akan diberikan diskon 20%. Namun, terjadi perubahan requirement yakni diskon akan diberikan sebesar 15% saja secara rata tanpa minimal harga.</p>
+                <div class="example">
+                    <img src="../assets/masalah_deadcode_before.png">
                 </div>
-                <p>Ini adalah paragraf penjelasan lainnya.</p>
+                <p>Bisa dilihat pada code diatas, bahwa programmer tidak menghapus requirement yang pertama. Hal ini termasuk dead code karena meskipun bagian tersebut dijalankan, variable <code class="codeHighlight">discountPrice</code> hanya akan diambil dari requirement kedua.</p>
             </div>
             <div class="solution">
                 <h2>Penyelesaian</h2>
                 <div class="illustration">
                     <img src="illustration-solution-comments.jpg" alt="Illustration for solution">
                 </div>
-                <p>Ini adalah paragraf penyelesaian.</p>
+                <p>Bagian requirement yang pertama dapat dihapus saja.</p>
+                <div class="example">
+                    <img src="../assets/masalah_deadcode_after.png" >
+                </div>
+                <p>Treatment lain yang bisa dilakukan pada Dead Code:</p>
+                <ul>
+                    <li class="treatment">Inline Class</li>
+                    <p>Dapat digunakan untuk menghapus class yang tidak berguna.</p>
+                    <li class="treatment">Collapse Hierarchy</li>
+                    <p>Dapat digunakan untuk menggabungkan subclass dengan superclass.</p>
+                    <li class="treatment">Remove Parameter</li>
+                    <p>Dapat digunakan untuk menghapus parameter yang tidak dibutuhkan dalam sebuah method.</p>
+                </ul>
             </div>
         </div>
     </div>
@@ -209,20 +287,44 @@
                     <img src="illustration-explanation-comments.jpg" alt="Illustration for explanation">
                 </div>
                 <blockquote>
-                    <p>"Ini adalah kutipan dengan tanda petik yang berbeda ukuran dan fontnya."</p>
+                    <p>"Hadeh sok banget sih pake buat class tambahan segala. Emangnya dengan buat code tambahan nantinya bakal kepake? Yang ada nanti malah buang-buang waktu dan tenaga doank!!"</p>
                 </blockquote>
-                <p>Ini adalah paragraf penjelasan.</p>
-                <div class="illustration">
-                    <img src="../assets/masalah-comments.png">
+                <p>Smell ini terjadi jika ada class, method, field, atau parameter yang sudah dibuat padahal belum dipakai atau sebetulnya tidak dibutuhkan dalam requirement.</p>
+                <p>Biasanya hal ini terjadi ketika programmer berspekulasi bahwa projectnya akan membutuhkan code itu. Namun, setelah produk berjalan, bagian code ini ternyata tidak dibutuhkan. Hal ini menjadi masalah karena code menjadi lebih sulit dibaca untuk hal yang tidak perlu.</p>
+                <p>Salah satu prinsip extreme programming (XP) yang terkenal adalah <span class="treatment">You Aren’t Gonna Need It (YAGNI)</span>. Disarankan oleh XP untuk tidak menambahkan fungsionalitas sampai benar-benar diperlukan.</p>
+                <p>Contohnya ada sebuah project dimana requirementnya adalah price bisa memiliki Currency antara USD atau IDR. Namun, programmer berspekulasi bahwa IDR dan USD termasuk dalam kurs jenis tradisional dan nantinya akan ada kurs jenis digital. Sehingga programmer membuat abstract class <code class="codeHighlight">Traditional</code> dan <code class="codeHighlight">Digital</code> yang merupakan turunan dari class <code class="codeHighlight">Currency</code>. Class <code class="codeHighlight">IDR</code> dan <code class="codeHighlight">USD</code> akan menjadi turunan dari class <code class="codeHighlight">Traditional</code> sedangkan class <code class="codeHighlight">Digital</code> akan menjadi parent class dari kurs jenis digital.</p>
+                <div class="example3">
+                    <img src="../assets/masalah_speculative_before1.png">
                 </div>
-                <p>Ini adalah paragraf penjelasan lainnya.</p>
+                <div class="example3">
+                    <img src="../assets/masalah_speculative_before2.png">
+                </div>
+                <div class="example33">
+                    <img src="../assets/masalah_speculative_before3.png">
+                </div>
+                <p>Class <code class="codeHighlight">Digital</code> sebenarnya tidak dibutuhkan karena tidak termasuk dalam requirement. Maka class ini dapat dihapus saja.</p>
             </div>
             <div class="solution">
                 <h2>Penyelesaian</h2>
                 <div class="illustration">
                     <img src="illustration-solution-comments.jpg" alt="Illustration for solution">
                 </div>
-                <p>Ini adalah paragraf penyelesaian.</p>
+                <p>Selain class <code class="codeHighlight">Digital</code>, class <code class="codeHighlight">Traditional</code> juga dapat dihapus. Lakukan <span class="treatment">Collapse Hierarchy</span> dengan membuat class <code class="codeHighlight">IDR</code> dan class <code class="codeHighlight">USD</code> menjadi turunan langsung dari class <code class="codeHighlight">Currency</code>.</p>
+                <div class="example3">
+                    <img src="../assets/masalah_speculative_after1.png" >
+                </div>
+                <div class="example33">
+                    <img src="../assets/masalah_speculative_after2.png" >
+                </div>
+                <p>Treatment lain yang bisa dilakukan pada Speculative Generality:</p>
+                <ul>
+                    <li class="treatment">Inline Class</li>
+                    <p>Dapat digunakan untuk menghapus kelas yang tidak lagi diperlukan dan menggabungkan fungsionalitasnya langsung ke dalam kelas yang memanggilnya.</p>
+                    <li class="treatment">Inline Method</li>
+                    <p>Dapat digunakan untuk menghapus method yang tidak digunakan.</p>
+                    <li class="treatment">Remove Parameter</li>
+                    <p>Dapat digunakan untuk menghapus parameter yang tidak dibutuhkan dalam sebuah method.</p>
+                </ul>
             </div>
         </div>
     </div>
