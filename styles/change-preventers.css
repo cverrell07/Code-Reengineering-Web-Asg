@@ -89,7 +89,7 @@ body {
     text-align: center;
     width: 70%;
     margin-bottom: 2%;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #959595;
 }
 .buttons-container {
@@ -99,7 +99,7 @@ body {
     flex-direction: row;
 }
 .button {
-    width: 300px;
+    width: 370px;
     height: auto; 
     background-color: #333;
     margin: 10px;
@@ -108,7 +108,7 @@ body {
     align-items: center;
     justify-content: center; 
     cursor: pointer;
-    padding: 10px;
+    padding: 15px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 .button p{
@@ -145,12 +145,9 @@ body {
 }
 
 
-#comments,
-#duplicate-code,
-#lazy-class,
-#data-class,
-#dead-code,
-#speculative-generality {
+#divergent-change,
+#shotgun-surgery,
+#parallel-inheritance {
     padding: 7% 2%;
     margin: 50px auto;
     max-width: 90%;
@@ -159,38 +156,29 @@ body {
     color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-#comments h1,
-#duplicate-code h1,
-#lazy-class h1,
-#data-class h1,
-#dead-code h1,
-#speculative-generality h1 {
+#divergent-change h1,
+#shotgun-surgery h1,
+#parallel-inheritance h1 {
     font-family: "Jersey 25", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 5rem;
     margin-bottom: 2%;
 }
-#comments h2,
-#duplicate-code h2,
-#lazy-class h2,
-#data-class h2,
-#dead-code h2,
-#speculative-generality h2 {
+#divergent-change h2,
+#shotgun-surgery h2,
+#parallel-inheritance h2 {
     font-family: "Jersey 25", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 2rem;
     margin-bottom: 2%;
 }
-#comments p,
-#duplicate-code p,
-#lazy-class p,
-#data-class p,
-#dead-code p,
-#speculative-generality p {
+#divergent-change p,
+#shotgun-surgery p,
+#parallel-inheritance p {
     font-size: 1rem;
-    margin-bottom: 2%;
+    margin-bottom: 2%;  
     text-align: justify;
 }
 .explanation-solution {
@@ -235,19 +223,11 @@ blockquote {
 }
 .example img {
     max-width: 100%;
-    margin-bottom: 20px;
-}
-.example33 img,
-.example22 img{
-    margin-bottom: 20px;
-}
-.example33 img,
-.example3 img{
-    max-width: 80%;
-    
+    margin-bottom: 1%;
 }
 .solution h3{
     font-size: 15px;
+    margin-top: 3%;
     margin-bottom: 1%;
 }
 .treatment-lain{
@@ -265,6 +245,7 @@ blockquote {
 .italic {
     font-style: italic;
 }
+
 
 .footer {
     background-color: #000;

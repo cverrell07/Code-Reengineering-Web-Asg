@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Change Preventers</title>
+    <link rel="stylesheet" href="../styles/change-preventers.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-... (hash value) ..." crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <img src="logo.png" alt="VerVyn" class="logo">
+            <ul class="menu">
+                <li><a href="../views/index.html" class="btn btn-skeumorphic">Home</a></li>
+                <li><a href="../views/change-preventers.html" class="btn-now">The Change Preventers</a></li>
+                <li><a href="../views/dispensables.html" class="btn btn-skeumorphic">The Dispensables</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <h1 class="title">The Change Preventers</h1>
+        <p> "Change Preventers" adalah smell yang mengindikasikan bahwa ketika melakukan perubahan di satu bagian dari kode, akan menyebabkan banyak perubahan di bagian lainnya. Dampaknya, pengembangan program menjadi lebih rumit dan mahal.</p>
+        <div class="buttons-container">
+            <div class="button">
+                <div class="button-content">
+                    <i class="fas fa-random"></i>
+                    <p><a href="#divergent-change">Divergent Change</a></p>
+                </div>
+            </div>
+            <div class="button">
+                <div class="button-content">
+                    <i class="fas fa-crosshairs"></i>
+                    <p><a href="#shotgun-surgery">Shotgun Surgery</a></p>
+                </div>
+            </div>
+            <div class="button">
+                <div class="button-content">
+                    <i class="fas fa-link"></i>
+                    <p><a href="#parallel-inheritance">Parallel Inheritance Hierarchies</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="divergent-change">
+        <h1>Divergent Change</h1>
+        <div class="explanation-solution">
+            <div class="explanation">
+                <h2>Penjelasan</h2>
+                <div class="illustration">
+                    <img src="illustration-explanation-comments.jpg" alt="Illustration for explanation">
+                </div>
+                <blockquote>
+                    <p>"Bayangkan divergent change sebagai pengalaman ingin mengganti warna tombol di sebuah situs web. Seharusnya perubahan yang sederhana, bukan? Tetapi ternyata warna tombol itu digunakan di seluruh situs web, sehingga harus mengubah kode CSS di berbagai file untuk menyesuaikan warna baru."</p>
+                </blockquote>
+                <p> Seringkali, kita menemui kesulitan untuk menentukan apa yang harus dilakukan oleh kelas ini atau tidak. Ini bisa kita diskusikan bersama dalam tim saat merancang kode, atau kita tunggu sampai ada tanda-tanda yang jelas bahwa kelas ini sering berubah karena berbagai alasan. Cara yang umum untuk memisahkan tugas adalah dengan menggunakan MVC, di mana kita memisahkan model, view, dan controller. Namun, jika ingin lebih terperinci, kita juga bisa menggunakan arsitektur berlapis yang sudah dipelajari dalam kelas DDD.</p>
+                <p> Code di bawah ini serupa tidak ada masalah, namun bagaimana jika perusahaan ingin membuat fitur baru untuk memperbarui status pesanan? Tentu jika kita satukan di class <code class="codeHighlight">OrderManager</code> akan menambah beban kerja baru.</p>
+                <div class="example">
+                    <img src="../assets/masalah-divergent1.png">
+                    <img src="../assets/masalah-divergent2.png">
+                </div>
+            </div>
+            <div class="solution">
+                <h2>Penyelesaian</h2>
+                <p>Lakukan <span class="treatment">Extract Class</span> ketika ingin membuat manager baru yaitu khusus melakukan update pada order status. Di dalam class <code class="codeHighlight">OrderManager</code> nantinya akan terdapat method <code class="codeHighlight">updateOrderStatus()</code> yang dikhususkan melakukan pekerjaan ini. </p>
+                <div class="example">
+                    <img src="../assets/penyelesaian-divergent.png">
+                </div>
+                <h3>Treatment lain yang bisa dilakukan pada Divergent Change:</h3>
+                <div class="treatment-lain">
+                    <ul>
+                        <li class="treatment">Extract Superclass atau Subclass</li>
+                        <p>Jika setelah extract class masih memiliki perilaku yang sama, bisa manfaatin inheritance saja.</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="shotgun-surgery">
+        <h1>Shotgun Surgery</h1>
+        <div class="explanation-solution">
+            <div class="explanation">
+                <h2>Penjelasan</h2>
+                <div class="illustration">
+                    <img src="illustration-explanation-comments.jpg" alt="Illustration for explanation">
+                </div>
+                <blockquote>
+                    <p>"Aduh ribet banget.. Aku kan cuman ganti satu blok, kenapa warna LEGO lain jadi perlu diubah juga?? Gak jadi ubah aja deh.."</p>
+                </blockquote>
+                <p>Smell ini terjadi ketika proses terlalu rumit terjadi ketika melakukan sebuah perubahan.</p>
+                <p>Tidak hanya programmer yang melakukan perubahan, tapi sistem juga bisa.</p>
+                <p>Lihatlah class <code class="codeHighlight">ProductManager</code> di bawah ini:</p>
+                <div class="example">
+                    <img src="../assets/masalah-shotgun1.png">
+                    <img src="../assets/masalah-shotgun2.png">
+                </div>
+                <p>Ketika user ingin mengubah product description, product price, ataupun product stock, maka program akan meminta update pada detail product lain.</p>
+            </div>
+            <div class="solution">
+                <h2>Penyelesaian</h2>
+
+                <p>Lakukan <span class="treatment">Extract Class</span> pada seluruh manager yang bisa dilakukan. Seperti <code class="codeHighlight">updateProductDescription()</code>, <code class="codeHighlight">updateProductPrice()</code>, dan <code class="codeHighlight">updateProductStock()</code> yang akan memiliki class masing-masing, sehingga user dapat melakukan update pada salah satu product's detail saja.</p>
+                <div class="example">
+                    <img src="../assets/penyelesaian-shotgun.png" >
+                </div>
+                <h3>Treatment lain yang bisa dilakukan pada Shotgun Surgery:</h3>
+                <div class="treatment-lain">
+                    <ul>
+                        <li class="treatment">Move Method and Move Field</li>
+                        <p>Memindahkan perilaku kelas yang ada ke dalam satu kelas. Jika tidak ada kelas yang sesuai untuk ini, buatlah kelas baru.</p>
+                        <li class="treatment">Inline Class</li>
+                        <p>Digunakan ketika pemisahan class ternyata membuat lazy class, lebih baik disatukan saja.</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="parallel-inheritance">
+        <h1>Parallel Inheritance Hierarchies</h1>
+        <div class="explanation-solution">
+            <div class="explanation">
+                <h2>Penjelasan</h2>
+                <div class="illustration">
+                    <img src="illustration-explanation-comments.jpg" alt="Illustration for explanation">
+                </div>
+                <blockquote>
+                    <p>"Aku punya peliharaan kelinci. Tapi sekarang aku juga ingin punya anjing. Papa tidak mengizinkan karena anjing juga perlu punya kandang sendiri.. Kenapa tidak disatukan saja, kan mereka sama-sama hewan?"</p>
+                </blockquote>
+                <p>Ketika perubahan diperlukan dalam satu hierarki, perubahan seringkali juga harus dilakukan di hierarki lainnya. Misalnya, jika kita menambahkan jenis karyawan baru ke dalam hierarki karyawan, seperti karyawan paruh waktu, kita mungkin juga perlu menyesuaikan struktur departemen untuk mencerminkan perubahan tersebut.</p>
+                <p>Sebagai contoh lihatlah code di bawah ini. Terdapat class <code class="codeHighlight">FullTimeEmployee</code> dan <code class="codeHighlight">PartTimeEmployee</code> yang extends terhadap class <code class="codeHighlight">Employee</code>. Selain itu <code class="codeHighlight">SalesDepartment</code> dan <code class="codeHighlight">ProductionDepartment</code> yang extends kepada class <code class="codeHighlight">Department</code>.</p>
+                <div class="example">
+                    <img src="../assets/masalah-inherit1.png">
+                    <img src="../assets/masalah-inherit2.png">
+                    <img src="../assets/masalah-inherit3.png">
+                    <img src="../assets/masalah-inherit4.png">
+                    <img src="../assets/masalah-inherit5.png">
+                    <img src="../assets/masalah-inherit6.png">
+                </div>
+                <p>Terlihat bahwa class <code class="codeHighlight">FullTimeEmployee</code> dan <code class="codeHighlight">PartTimeEmployee</code> extends ke parent class <code class="codeHighlight">Employee</code>. Namun jika lebih diperhatikan, perilaku di antara kedua subclass ini tidak terlihat mewarisi sifat <code class="codeHighlight">Employee</code> dengan baik. Sehingga ketika ada jenis employee baru lagi, akan menghasilkan parallel inheritance hierarchies serupa.</p>
+            </div>
+            <div class="solution">
+                <h2>Penyelesaian</h2>
+                <p>Dengan menerapkan polimorfisme dan pewarisan yang lebih bijak, maka akan membuat interface baru yaitu <code class="codeHighlight">Job</code> yang akan diimplement ke <code class="codeHighlight">FullTimeJob</code> dan <code class="codeHighlight">PartTimeJob</code> sehingga pembagian dilakukan ke jenis job, bukan jenis employee lagi. Dengan dilakukannya solusi ini, employee juga bisa mendapat <code class="codeHighlight">Department</code> dan <code class="codeHighlight">Job</code> yang lebih teratur.</p>
+                <div class="example">
+                    <img src="../assets/penyelesaian-inherit1.png">
+                    <img src="../assets/penyelesaian-inherit2.png">
+                    <img src="../assets/penyelesaian-inherit3.png">
+                    <img src="../assets/penyelesaian-inherit4.png">
+                    <img src="../assets/penyelesaian-inherit5.png">
+                </div>
+                <h3>Treatment lain yang bisa dilakukan pada Parallel Inheritance Hierarchies:</h3>
+                <div class="treatment-lain">
+                    <ul>
+                        <li class="treatment">Move Method and Move Field</li>
+                        <p>Menghapus duplikat hierarki kelas paralel dalam dua langkah. Pertama, jadikan instance dari satu hierarki merujuk ke instance dari hierarki lainnya. Kemudian, hapus hierarki pada kelas yang dirujuk.</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 VerVyn. All rights reserved.</p>
+    </footer>
+    
+</body>
+
+<script src="../scripts/scroll-behavior.js"></script>
+
+</html>
