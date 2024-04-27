@@ -206,3 +206,50 @@ blockquote {
     margin-bottom: 20px;
     color: #242424;;
 }
+
+.example2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.example2 img,
+.example22 img,
+.example img{
+    margin-top: 5px;
+    margin-right: 5px;
+    max-width: 50%;
+    height: auto;
+}
+
+
+.example img {
+    max-width: 80%;
+    margin-bottom: 20px;
+}
+
+.example33 img,
+.example22 img{
+    margin-bottom: 20px;
+}
+
+.example33 img,
+.example3 img{
+    max-width: 80%;
+    
+}
+
+.treatment {
+    color: lightsteelblue;
+}
+
+.codeHighlight {
+    padding: 0.2em 0.4em;
+    font-size: 0.85rem;
+    background-color: rgba(156, 130, 165, 0.2);
+    border-radius: 0.3rem;
+}
+
+.italic {
+    font-style: italic;
+}
