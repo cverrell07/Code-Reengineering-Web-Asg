@@ -22,7 +22,7 @@ body {
     background-color: #000000;
     border-radius: 20px;
     z-index: 1000;
-    padding: 25px 25px; 
+    padding: 20px 25px; 
 }
 .nav-container {
     display: flex;
@@ -31,7 +31,7 @@ body {
     padding: 0 20px; 
 }
 .logo {
-    width: 100px;
+    width: 30px;
 }
 .menu {
     list-style: none;
@@ -116,10 +116,13 @@ h1{
     align-items: center;
 }
 .hero-box {
-    width: 270px;
-    height: 250px;
-    background-color: #333;
+    width: 300px;
+    height: 270px;
     margin-bottom: 20px;
+}
+.hero-box img{
+    width: 290px;
+    height: 270px;;
 }
 .cta-container {
     width: 100%;
@@ -129,7 +132,7 @@ h1{
 }
 .cta-button {
     padding: 15px 0;
-    width: 100%;
+    width: 97%;
     border-radius: 10px;
     border: none;
     font-family: "Jersey 25", sans-serif;
@@ -151,11 +154,11 @@ h1{
 .contents {
     text-align: center;
     margin: 2% 20px;
-    height: 60vh; 
-    display: flex; 
-    flex-direction: row; 
+    height: auto; 
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 .content-title {
     font-size: 3rem;
@@ -163,31 +166,44 @@ h1{
     margin-bottom: 1%;
 }
 .card {
-    width: calc(50% - 40px);
-    height: 300px;
+    width: 45%;
+    max-width: 300px;
     background-color: #333;
     padding: 30px;
     border-radius: 20px;
-    margin-bottom: 30px;
+    margin: 0 30px;
     transition: transform 0.3s ease;
-    margin: auto;
-    justify-content: center;
-    justify-items: center;
 }
-.card-title{
+.card-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.card-image {
+    width: 100%;
+    height: 50%;
+    border-radius: 5%;
+    object-fit: cover; /* Agar gambar sesuai dengan area yang diberikan */
+}
+.card-details {
+    text-align: left;
+}
+.card-title {
+    margin-top: 5%;
+    font-size: 1.5rem;
     font-family: "Jersey 25", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 .card:hover {
     transform: scale(0.95);
-}
-.card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    cursor: pointer;
 }
 .card p {
-    opacity: 0.8;
+    font-size: 0.7rem;
+    margin-top: 2%;
+    opacity: 0.5;
+    text-align: justify;
 }
 
 
@@ -212,3 +228,114 @@ h1{
     color: #7e7e7e;
     font-size: 12px;
 }
+
+
+.menu-toggle {
+    display: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .nav-container {
+        justify-content: space-between;
+    }
+    .menu {
+        display: none;
+        height: 200px;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #000000;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(64, 64, 64, 0.5);
+        z-index: 999;
+        display: none;
+    }
+    .menu.show-menu {
+        display: flex;
+    }
+    .menu li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .menu a {
+        padding: 10px 15px;
+        border-radius: 10px;
+    }
+    .menu .btn-now {
+        background-color: #ffffff;
+        color: #242424;
+        box-shadow: 0 0px 20px rgba(255, 255, 255, 0.5);
+    }
+    .menu a:hover {
+        background-color: #000000;
+        box-shadow: none;
+    }
+    .menu .btn-now:hover {
+        background-color: #ffffff;
+        color: #242424;
+        box-shadow: 0 0px 20px rgba(255, 255, 255, 0.5);
+    }
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+    .hero {
+        padding: 100px 20px;
+        height: auto;
+        flex-direction: column;
+    }
+    .hero-left,
+    .hero-right {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+    .hero-right {
+        margin-top: 20px;
+    }
+    .hero-box-container {
+        flex-direction: row;
+        align-items: center;
+    }
+    .hero-box {
+        width: 70%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .hero-box img {
+        width: 70%;
+        height: auto;
+    }
+    .cta-button {
+        width: 90%;
+    }
+    .contents {
+        margin: 5% 10px;
+    }
+    .card {
+        width: 45%;
+        height: 100%;
+        max-width: none;
+        margin: 0 auto 10px;
+        padding: 10px; 
+    }
+    .card-details {
+        text-align: justify;
+    }
+    .card-image {
+        width: 100%;
+        height: 100%; /* Mengurangi tinggi gambar agar proporsional */
+    }
+    .card h3{
+        font-size: 1rem;
+    }
+    .card p {
+        font-size: 0.5rem;
+    }
+}
+
