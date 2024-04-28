@@ -415,9 +415,12 @@ blockquote {
         margin-right: 10px;
     }
 
-    #divergent-change,
-    #shotgun-surgery,
-    #parallel-inheritance {
+    #comments,
+    #duplicate-code,
+    #lazy-class,
+    #data-class,
+    #dead-code,
+    #speculative-generality {
         padding: 10% 2%;
         margin: 20px auto;
         width: 100%;
@@ -429,19 +432,28 @@ blockquote {
         width: 100%;
         max-width: 100%; 
     }
-    #divergent-change h1,
-    #shotgun-surgery h1,
-    #parallel-inheritance h1 {
+    #comments h1,
+    #duplicate-code h1,
+    #lazy-class h1,
+    #data-class h1,
+    #dead-code h1,
+    #speculative-generality h1 {
         font-size: 2rem;
     }
-    #divergent-change h2,
-    #shotgun-surgery h2,
-    #parallel-inheritance h2 {
+    #comments h2,
+    #duplicate-code h2,
+    #lazy-class h2,
+    #data-class h2,
+    #dead-code h2,
+    #speculative-generality h2 {
         font-size: 1.5rem; 
     }
-    #divergent-change p,
-    #shotgun-surgery p,
-    #parallel-inheritance p {
+    #comments p,
+    #duplicate-code p,
+    #lazy-class p,
+    #data-class p,
+    #dead-code p,
+    #speculative-generality p {
         font-size: 0.7rem;
     }
     .explanation,
@@ -449,11 +461,15 @@ blockquote {
         padding: 0 2%;
         width: 100%;
     }
+    .example3,
+    .example33,
     .example2,
     .example22,
     .example img {
         flex-direction: column; 
     }
+    
+    .example33 img,
     .example2 img,
     .example22 img,
     .example img {
