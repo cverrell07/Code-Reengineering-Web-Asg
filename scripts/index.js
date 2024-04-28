@@ -11,11 +11,11 @@ function scrollToContents() {
 }
 
 function redirectToChangePreventers() {
-    window.location.href = "../views/change-preventers.html";
+    window.location.href = "./views/change-preventers.html";
 }
 
 function redirectToDispensables() {
-    window.location.href = "../views/dispensables.html";
+    window.location.href = "./views/dispensables.html";
 }
 
 document.addEventListener('DOMContentLoaded', function() {
